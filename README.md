@@ -1,4 +1,3 @@
-
 # React js
 
 ## Official Documentation
@@ -14,19 +13,22 @@ A js library to build UI.
 3. Add React to an Website
 	For most applications which don't need SPA, the addition of the tag with the react component is sufficient. The CDN's which are added during development should be changed to minified versions before moving to the prodction.
 
-	    const e = React.createElement;
-	    // Display a "Like" <button>
-	    return e(
-	      'button',
-	      { onClick: () => this.setState({ liked: true }) },
-	      'Like'
-	    );
+	const e = React.createElement;
+	// Display a "Like" <button>
+	return e(
+	  'button',
+	  { onClick: () => this.setState({ liked: true }) },
+	  'Like'
+	);
+
 	With these options we are utilizing pure js thus relying on the festures purely provided by the browser.
 	Instead you can use JSX which gives more control and less code. Adding to code with CDN can be easily done but will lower sites performance thus isn't suitable for production.
 	Adding JSX to prodcution doesnt require bundler or production server.
 
 4. Integrated toolchain (for best user and developer experience)
-	If not comfortable with js toolchains, adding react as plain <script> tag to HTML is sufficient optionally with jsx.
+	If not comfortable with js toolchains, adding react as plain <script> tag to HTML is sufficient
+	optionally with jsx.
+
 	Toochain solutions-
 	a. create react app _ learning reactjs or creating a new SPA
 		Best way to start leaning react and creating SPA.
@@ -70,7 +72,75 @@ A js library to build UI.
 		create react app is mainly divided into two packages
 			a. create-react-app _ global command line utility.
 			b. react-scripts _ development dependency in the generated projects.
-		npx create-react-app my-app automatically uses latest version of create-react-app. If upading to the latest version, apply the migration instructions. In most cases, bumping the react-scripts versions and running npm install is sufficient but should always check for the breaking changes
+		npx create-react-app my-app automatically uses latest version of create-react-app. If upading to
+		the latest version, apply the migration instructions. In most cases, bumping the react-scripts
+		versions and running npm install is sufficient but should always check for the breaking changes
+
+		Editor Setup
+		  VS code - Install sublime-babel-vscode
+		  To enable typescript support in ESlint extention, add the configs to ".vscode/settings.json",
+		  {
+ 		  	 "eslint.validate": [
+ 		  	   "javascript",
+ 		  	   "javascriptreact",
+ 		  	   { "language": "typescript", "autoFix": true },
+ 		  	   { "language": "typescriptreact", "autoFix": true }
+ 		  	 ]
+		  }
+		  Debugging Code in the Editor
+		  	Install latest version of VS code and install chrome debugger extention. Add config to .vscode
+		  	/launch.json 
+		  	{
+		  	  "version": "0.2.0",
+		  	  "configurations": [
+		  	    {
+		  	      "name": "Chrome",
+		  	      "type": "chrome",
+		  	      "request": "launch",
+		  	      "url": "http://localhost:3000",
+		  	      "webRoot": "${workspaceFolder}/src",
+		  	      "sourceMapPathOverrides": {
+		  	        "webpack:///src/*": "${webRoot}/*"
+		  	      }
+		  	    }
+		  	  ]
+		  	}
+		  	You can start debugging by npm run and pressing F5 or debug button in VS code.
+		  Formatting Code Automatically
+		  	prettier
+
+		 Developing Component in isolation
+		 	Storybook for react 
+		 	Third-party tools that let you develop components and see all their states in isolation from
+		 	your app.
+		 	npx -p @storybook/cli sb init // And follow instructions.
+
+		Analyzing bundle size
+			SourcemapExplorer analyzes javascript bundles using the source maps, helping to understand
+			where the code bloat is coming from.
+			npm install --save source-map-explorer
+			Add config to package.json
+				   "scripts": {
+					+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+					     "start": "react-scripts start",
+					     "build": "react-scripts build",
+					     "test": "react-scripts test",
+			Analyze with 
+				npm run build
+				npm run analyze
+
+		Using HTTPS in development
+			Works only with react-scripts@0.4.0 and higher
+			cmd = set HTTPS=true&&npm start
+			powershell = ($env:HTTPS = "true") -and (npm start)
+
+
+// to be continued
+// urls
+// https://create-react-app.dev/docs/making-a-progressive-web-app
+// https://reactjs.org/docs/getting-started.html
+
+
 
 	b. next.js _ server rendered website with nodejs.
 	c. gatsby _ static content oriented website. 
