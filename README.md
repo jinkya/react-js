@@ -135,11 +135,15 @@ A js library to build UI.
 			powershell = ($env:HTTPS = "true") -and (npm start)
 
 
-// to be continued
+// to be continued to read on later...
 // urls
 // https://create-react-app.dev/docs/making-a-progressive-web-app
 // https://reactjs.org/docs/getting-started.html
-
+// https://whatwebcando.today/
+// https://voice-memos.appspot.com/
+// https://jakearchibald.github.io/svgomg/
+// https://bestofjs.org/
+// https://caniuse.com/
 
 
 	b. next.js _ server rendered website with nodejs.
